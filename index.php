@@ -9,18 +9,24 @@ $db=accessDatabase();
 $shortener = new ShortenUrl($db);
 
 $shortURL_Prefix = 'http://localhost/URL-Shorterner/?e='; 
+$error=$shortened="";
+
 
 if (isset($_POST['submit'])){
-
+    
     $url=$_POST["url"];
     try{
       $randomid=$shortener->urlShorten($url);
       $shortURL = $shortURL_Prefix.$randomid;
-      echo 'Short URL: '.$shortURL;
+      // echo 'Short URL: '.$shortURL;
+      $shortened=$shortURL;
       unset($_POST['submit']);
+      
+      // unsetShortened();
 
     }catch(Exception $e){
       echo $e->getMessage();
+      $error=$e->getMessage();
     }
     
 }
@@ -32,6 +38,11 @@ if(isset($_GET["e"])){
   }catch(Exception $e){
     echo $e->getMessage();
   }
+}
+
+function unsetShortened(){
+ 
+  unset($shortened);
 }
 
 ?>
@@ -52,11 +63,54 @@ if(isset($_GET["e"])){
           <p>Paste it!</p>
         </div>
         <div class="row title">
-          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-              <input type="text" id="url" name="url"><br><br>
-              <input type="submit" name="submit" id="submit" value="Submit">
-            </form>
+      
+        <?php 
         
+          if (empty($shortened)==false)
+          {
+           
+            echo '<br><br><input type="text" value="'.$shortened.'" id="updated">';
+            // echo '<br><label id="updated" value="'.$shortened.'">'.$shortened.'</label>';
+            echo '<br><br><button onclick="copyToClipboard()">Copy text</button>';
+            echo '<br><br><button onclick="newEntry()">New!</button>';
+            $shortened="";
+          }else{
+           
+            echo '<form action='.htmlspecialchars($_SERVER["PHP_SELF"]);
+            echo ' method="POST">
+                    <input type="text" id="url" name="url"><br><br>
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                  </form>';
+          }
+        ?>
       </div>
     </body>
+    <script>
+        function newEntry(){
+          location.href = "index.php";
+
+            // window.location.reload(true);
+            // return false;
+
+        }
+        function copyToClipboard() {
+
+          /* Get the text field */
+          
+          var copyText = document.getElementById("updated");
+
+          /* Select the text field */
+
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+          /* Copy the text inside the text field */
+          document.execCommand("copy");
+
+          /* Alert the copied text */
+          alert("Copied the text: " + copyText.value);
+        }
+
+        
+    </script>
 </html>
