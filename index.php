@@ -18,11 +18,11 @@ if (isset($_POST['submit'])){
     try{
       $randomid=$shortener->urlShorten($url);
       $shortURL = $shortURL_Prefix.$randomid;
-      // echo 'Short URL: '.$shortURL;
+      
       $shortened=$shortURL;
       unset($_POST['submit']);
       
-      // unsetShortened();
+     
 
     }catch(Exception $e){
       echo $e->getMessage();
@@ -70,7 +70,6 @@ function unsetShortened(){
           {
            
             echo '<br><br><input type="text" value="'.$shortened.'" id="updated">';
-            // echo '<br><label id="updated" value="'.$shortened.'">'.$shortened.'</label>';
             echo '<br><br><button class="button-up" onclick="copyToClipboard()">Copy text</button>';
             echo '<button class="button-up" onclick="newEntry()">New!</button>';
             $shortened="";
@@ -87,9 +86,11 @@ function unsetShortened(){
     </body>
     <script>
         function newEntry(){
+          /** Reload fresh page */
           location.href = "index.php";
 
         }
+
         function copyToClipboard() {
 
           /* Get the text field */
