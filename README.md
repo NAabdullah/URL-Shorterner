@@ -25,3 +25,5 @@ Clone or download the project and place the URL-Shortnerer folder in the C:\xamp
 3. Import the provided sql file into phpmyadmin
 
 4. Change database user and password if required in DbConnection.php
+
+5. Access the website using linkbit.ly. Have fun!
