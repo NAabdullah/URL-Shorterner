@@ -89,9 +89,6 @@ function unsetShortened(){
         function newEntry(){
           location.href = "index.php";
 
-            // window.location.reload(true);
-            // return false;
-
         }
         function copyToClipboard() {
 
