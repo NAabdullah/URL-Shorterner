@@ -22,7 +22,7 @@ Clone or download the project and place the URL-Shorterner folder in the C:\xamp
  DocumentRoot c:/xampp/htdocs/URL-Shorterner
 </VirtualHost>
 ```
-3. Import the provided sql file into phpmyadmin
+3. Import the provided sql file (database\shortenurl.sql) into phpmyadmin
 
 4. Change database user and password if required in DbConnection.php
 
