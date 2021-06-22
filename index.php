@@ -8,7 +8,7 @@ require_once 'ShortenUrl.php';
 $db=accessDatabase();
 $shortener = new ShortenUrl($db);
 
-$shortURL_Prefix = 'http://localhost/URL-Shorterner/?e='; 
+$shortURL_Prefix = 'http://linkbit.ly/?e='; 
 $error=$shortened="";
 
 
