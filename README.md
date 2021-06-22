@@ -1,6 +1,6 @@
 # URL-Shorterner
 
-The server is hosted using XAMPP, database uses phpmyadmin
+The server is hosted locally using XAMPP, database uses phpmyadmin
 
 Clone or download the project and place the URL-Shortnerer folder in the C:\xampp\htdocs directory.
 
