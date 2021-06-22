@@ -1,6 +1,6 @@
 # URL-Shorterner
 
-The server is hosted using XAMPP, database uses phpmyadmin
+The server is hosted locally using XAMPP, database uses phpmyadmin
 
 Clone or download the project and place the URL-Shortnerer folder in the C:\xampp\htdocs directory.
 
@@ -25,3 +25,5 @@ Clone or download the project and place the URL-Shortnerer folder in the C:\xamp
 3. Import the provided sql file into phpmyadmin
 
 4. Change database user and password if required in DbConnection.php
+
+5. Access the website using linkbit.ly. Have fun!
