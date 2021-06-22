@@ -71,15 +71,15 @@ function unsetShortened(){
            
             echo '<br><br><input type="text" value="'.$shortened.'" id="updated">';
             // echo '<br><label id="updated" value="'.$shortened.'">'.$shortened.'</label>';
-            echo '<br><br><button onclick="copyToClipboard()">Copy text</button>';
-            echo '<br><br><button onclick="newEntry()">New!</button>';
+            echo '<br><br><button class="button-up" onclick="copyToClipboard()">Copy text</button>';
+            echo '<button class="button-up" onclick="newEntry()">New!</button>';
             $shortened="";
           }else{
            
             echo '<form action='.htmlspecialchars($_SERVER["PHP_SELF"]);
             echo ' method="POST">
                     <input type="text" id="url" name="url"><br><br>
-                    <input type="submit" name="submit" id="submit" value="Submit">
+                    <input type="submit" name="submit" id="submit" value="Submit" class="button-up">
                   </form>';
           }
         ?>
