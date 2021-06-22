@@ -40,10 +40,6 @@ if(isset($_GET["e"])){
   }
 }
 
-function unsetShortened(){
- 
-  unset($shortened);
-}
 
 ?>
 <!DOCTYPE html>
