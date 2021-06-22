@@ -28,4 +28,4 @@ Restart XAMPP Apache after edit
 
 4. Change database user and password if required in DbConnection.php
 
-5. Access the website using linkbit.ly. Have fun!
+5. Access the website using **linkbit.ly**. Have fun!
