@@ -35,6 +35,8 @@ class ShortenUrl
         $url=$this->getUrlFromDB($short);
         if(empty($url)){
             throw new Exception("URL does not exist in DB");
+        }else{
+            $this->updateTimesVisited($short);
         }
         return $url["long_url"];
         
@@ -92,6 +94,26 @@ class ShortenUrl
         return (empty($result)) ? false : $result;
 
     }
+
+    public function updateTimesVisited($short){
+        $stmt = $this->pdo->prepare("UPDATE ".self::$table." SET time_visited = time_visited + 1 WHERE short_code =:code ");
+        $stmt->execute(array(':code' => $short));
+
+
+    }
+
+    public function getCount($short){
+        $query = "SELECT time_visited FROM ".self::$table." WHERE short_code = :short_code LIMIT 1";
+        $stmt = $this->pdo->prepare($query);
+        $params=array(
+            "short_code" => $short
+        );
+        $stmt->execute($params);
+
+        $result = $stmt->fetch();
+        return (empty($result)) ? false : $result["time_visited"];
+    }
+
     public function insertUrlIntoDb($url,$short){
 
         $query = "INSERT INTO ".self::$table." (long_url, short_code) VALUES (:long_url, :short_code)";

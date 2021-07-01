@@ -32,6 +32,9 @@ if (isset($_POST['submit'])){
 }
 if(isset($_GET["e"])){
   try{
+    // $count=$shortener->getCount($short);
+    // $_SESSION["count"]=$count;
+    // header("Location: count.php");
     $url=$shortener->redirect($_GET["e"]);
     header("Location: ".$url);
 
